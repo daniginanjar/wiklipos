@@ -1246,10 +1246,8 @@ if OpenDialog1.Execute then
           if FileExists(extractfilepath(application.ExeName)+'wiklipos.mdb') then
             begin
               try
-                dm.data.ConnectionString:='Provider=Microsoft.ACE.OLEDB.12.0;Data Source=wiklipos.mdb;'
-                +'Jet OLEDB:Database Password=admin$@*^@;';
+                dm.data.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=wiklipos.mdb;Jet OLEDB:Database Password=admin$@*^@;';
                 dm.data.Connected:=true;
-
                 dm.user.Open;
                 dm.reports.Open;
                 dm.employee.Open;
@@ -1258,26 +1256,28 @@ if OpenDialog1.Execute then
                 dm.vemployee.Open;
                 dm.popup.Open;
                 dm.vDivRanking.Open;
+                dm.vUserRanking.Open;
                 dm.vProblemRanking.Open;
                 dm.vPerformance.Open;
                 dm.vTotalPerformance.Open;
+                dm.vUsers.Open;
                 dm.vProblemChart.Open;
                 dm.vWeeklyReport.Open;
                 dm.skin.Open;
                 dm.alarms.Open;
-                dm.valarms.Open;
-                Showmessage('Database Recovery Successfull!');
+                dm.vAlarms.Open;
               except
-                Showmessage('Invalid Database!');
+                Showmessage('Invalid Database, please reinstall Wiklipos!');
                 dm.data.Connected:=false;
-                //application.Terminate;
+                application.Terminate;
               end;
             end
           else
             begin
-              ShowMessage('Database doesnt Exist!');
-              //application.Terminate;
+              ShowMessage('Database doesnt Exist! please reinstall Wiklipos!');
+              application.Terminate;
             end;
+
         except
           ShowMessage('Recovery failed, please try again!');
         end;

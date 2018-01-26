@@ -1154,7 +1154,7 @@ bulan:=BulanIni(now);
 
 
 dm.vAlarms.SQL.Clear;
-dm.vAlarms.SQL.Add('select*from vAlarms where user_id='+fMain.Label11.Caption+' and (start_date > '+formatdatetime('dd-MM-yyy', now)+')');
+dm.vAlarms.SQL.Add('select*from vAlarms where (user_id='+fMain.Label11.Caption+') and (start_date > '+formatdatetime('dd-MM-yyy', now)+')');
 dm.vAlarms.SQL.Add('and (('+hari+' = true and daily = true)');
 dm.vAlarms.SQL.Add('or (monthly = true and monthly_date = '+quotedstr(formatdatetime('d',now))+')');
 dm.vAlarms.SQL.Add('or (yearly = true and yearly_date = '+quotedstr(formatdatetime('d',now))+' and yearly_month = '+quotedstr(bulan)+')');

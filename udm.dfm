@@ -1,7 +1,7 @@
 object dm: Tdm
   OldCreateOrder = False
-  Left = 274
-  Top = 250
+  Left = 1587
+  Top = 159
   Height = 339
   Width = 1108
   object data: TADOConnection

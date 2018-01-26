@@ -23,8 +23,7 @@ begin
   if FileExists(extractfilepath(application.ExeName)+'wiklipos.mdb') then
     begin
       try
-        dm.data.ConnectionString:='Provider=Microsoft.ACE.OLEDB.12.0;Data Source=wiklipos.mdb;'
-        +'Jet OLEDB:Database Password=admin$@*^@;';
+        dm.data.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=wiklipos.mdb;Jet OLEDB:Database Password=admin$@*^@;';
         dm.data.Connected:=true;
         dm.user.Open;
         dm.reports.Open;
@@ -34,14 +33,19 @@ begin
         dm.vemployee.Open;
         dm.popup.Open;
         dm.vDivRanking.Open;
+        dm.vUserRanking.Open;
         dm.vProblemRanking.Open;
         dm.vPerformance.Open;
         dm.vTotalPerformance.Open;
+        dm.vUsers.Open;
         dm.vProblemChart.Open;
         dm.vWeeklyReport.Open;
         dm.skin.Open;
         dm.alarms.Open;
-        dm.valarms.Open;
+        dm.vAlarms.Open;
+
+
+
         Application.CreateForm(TfLogin, fLogin);
         Application.CreateForm(TfMain, fMain);
         Application.CreateForm(TfPopUp, fPopUp);
